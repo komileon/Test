@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+h3 {
+  @apply text-3xl;
+}
+
+.input-style {
+  @apply border border-zinc-500 outline-0 w-full px-2 py-1;
+}
+
+.button-style {
+  @apply w-full text-center m-auto h-8 outline-0 font-medium flex justify-center items-center gap-1;
+}
+
+.loading {
+  @apply animate-spin;
+}
