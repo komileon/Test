@@ -10,10 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@boxicons/react": "^1.0.3",
+    "@monaco-editor/react": "^4.7.0",
+    "@mui/icons-material": "^9.4.0",
     "lucide-react": "^1.31.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "react-router": "^8.3.0"
+    "react-router": "^8.3.0",
+    "shiki": "^4.4.3",
+    "uuid": "^14.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.29.7",
