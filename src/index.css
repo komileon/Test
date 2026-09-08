@@ -1,7 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Roboto+Slab:wght@100..900&family=Slabo+13px&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 @import "tailwindcss";
 
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto Slab";
+}
+
+a {
+  @apply underline underline-offset-1 decoration-1;
+}
+
+h1 {
+  @apply text-4xl font-medium border-l-0 border-l-olive-400 text-black/90;
+}
+
 h3 {
-  @apply text-3xl;
+  @apply text-2xl font-semibold text-black/90;
+}
+
+blockquote {
+  @apply text-base italic border-l-3 border-zinc-700 text-zinc-600 py-2;
+}
+
+p {
+  @apply text-base text-zinc-800 py-3;
 }
 
 .input-style {
@@ -14,4 +39,94 @@ h3 {
 
 .loading {
   @apply animate-spin;
+}
+
+.text-field-style {
+  white-space: pre-wrap;
+  /* overflow-wrap: anywhere; */
+  /* max-width: max-content; */
+  @apply outline-0 border-0 pt-4 leading-normal px-2 min-h-10;
+}
+/* .text-field-style[data-index="0"]:empty::before {
+  content: "Title";
+  color: #5e5c5c;
+  pointer-events: none;
+} */
+h1[data-index="0"] {
+  @apply text-5xl;
+}
+.text-field-style[data-index="0"]:empty::before {
+  @apply text-neutral-400;
+  /* content: "Commencer à taper quelque chose..."; */
+  content: "Title...";
+  pointer-events: none;
+}
+
+/* Floating Toolbar Style */
+
+.floating-style::after {
+  content: "";
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  bottom: -5px;
+  right: calc(50% - 5px);
+  transform: translateX(50%);
+  transform: rotate(45deg);
+  @apply bg-zinc-900;
+}
+.floating-button {
+  @apply h-full min-w-5 cursor-pointer border-0;
+}
+
+/* Floating Plus Button */
+
+.floating-plus-button,
+.floating-plus-button-first {
+  @apply border outline-0 w-8 h-8 flex items-center justify-center cursor-pointer rounded-full;
+}
+.floating-plus-button {
+  @apply border-blue-800 text-blue-800;
+}
+
+/* Code Box */
+
+.code {
+  overflow: auto;
+  white-space: pre;
+  line-height: 1.5;
+  font-family: "JetBrains Mono";
+}
+
+.code span {
+  font-family: "JetBrains Mono" !important;
+}
+
+.code pre {
+  background: transparent !important;
+  outline: none;
+  white-space: pre;
+}
+
+.code:empty::after {
+  content: attr(data-placeholder);
+  pointer-events: none;
+  @apply text-neutral-400;
+}
+
+.unsplash-img:hover span {
+  @apply opacity-100 transition-all duration-300;
+}
+
+.label a {
+  @apply px-0.5;
+}
+
+.label.isEmpty::before {
+  content: "Type caption for image (optional)";
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  @apply text-neutral-400;
 }
