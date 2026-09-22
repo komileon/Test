@@ -4,7 +4,11 @@ import FieldImage from "./FieldImage";
 import FieldVideo from "./FieldVideo";
 import Separator from "./Separator";
 import type { FocusUpdateType, Move } from "../hooks/useEditorState";
-import { clearElement, isEmptyElement } from "../utils/blog.utils";
+import {
+  clearElement,
+  isEmptyElement,
+  sanitizeHtml,
+} from "../utils/blog.utils";
 import FieldCodeBox from "./FieldCodeBox";
 
 interface BNodeProps {
@@ -155,7 +159,8 @@ const Field = ({
 
   const handleInput = (event: React.InputEvent<HTMLElement>) => {
     // console.log(event.currentTarget.innerHTML)
-    onUpdate({ html: event.currentTarget.innerHTML });
+    console.log("PUT");
+    onUpdate({ html: sanitizeHtml(event.currentTarget.innerHTML) });
     if (nodeRef.current && isEmptyElement(event.currentTarget.innerHTML)) {
       onHandleFocus(field, nodeRef.current);
       // console.log("Show Plus Button")

@@ -1,4 +1,7 @@
-import { imageExtensions } from "../constants/blog.constants";
+import {
+  imageExtensions,
+  TAG_ACCEPT_BY_TEXT_FIELD,
+} from "../constants/blog.constants";
 import type { BNode, NodeType } from "../types/blog.types";
 import { v4 as uuidv4 } from "uuid";
 
@@ -6,6 +9,14 @@ function generateId() {
   // return crypto.randomUUID();
   // return Math.floor(Math.random() * 100000000).toString(36);
   return uuidv4();
+}
+
+export function sanitizeHtml(html: string) {
+  const stripped = html.replace(/<\/?([a-zA-Z]+)[^>]*>/g, (match, tag) => {
+    return TAG_ACCEPT_BY_TEXT_FIELD.includes(tag.toLowerCase()) ? match : "";
+  });
+
+  return stripped;
 }
 
 export const clearElement = (element: string) => {
